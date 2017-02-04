@@ -34,8 +34,7 @@ echo -e "$cyanClaro
 Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO.
 
 Neste script não há nenhuma garantia de funcionamento ou suporte do autor, use por sua conta e risco.
-$fim"
-echo -e "$azul
+
             SR. KHALIL  @CompreSSH
 CANAL:      TELEGRAM.ME/INEXISTENTESVPN
 EQUIPE SERVER FULL
