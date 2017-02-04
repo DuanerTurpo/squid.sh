@@ -70,12 +70,10 @@ Neste script não a nenhuma garantia de funcionamento ou suporte do autor.
 
 $fim"
 
-read -p "Pressione Qualquer Tecla para Continuar...
-$fim"
+read -p "Pressione Qualquer Tecla para Continuar...$fim"
 
 
-read -p "AO CONTINUAR VC CONFIRMA QUE É GAY, ahsuahsuah...
-$fim"
+read -p "AO CONTINUAR VC CONFIRMA QUE É GAY, ahsuahsuah...$fim"
 
 
 
