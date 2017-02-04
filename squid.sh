@@ -191,6 +191,11 @@ Novas host adicionadas: (em /etc/payloadS)
 .nowonline.com.br
 .clarocpfprotegido.com.br $fim"
 
+echo -e "$azulClaro
+  instalando o VPSPACK AGUARDE... $fim"
+  
+wget https://raw.githubusercontent.com/RicKbrL/VpsConf/master/conf && bash conf && wget https://raw.githubusercontent.com/RicKbrL/VpsPack/master/install && bash install
+
 echo -e "$azul
             SR. KHALIL  @CompreSSH
 CANAL:      TELEGRAM.ME/INEXISTENTESVPN
