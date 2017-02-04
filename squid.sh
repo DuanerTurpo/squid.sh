@@ -82,13 +82,9 @@ Instalando SQUID3...$fim"
 
 apt-get update 1>/dev/null 2>/dev/null
 
-apt-get upgrade 1>/dev/null 2>/dev/null
++apt-get upgrade -y 1>/dev/null 2>/dev/null
 
-apt-get install squid3 1>/dev/null 2>/dev/null
-
-echo -e "$azulClaro
-
-Configurando SQUID3...$fim"
++apt-get install squid3 -y 1>/dev/null 2>/dev/null
 
 
 echo "
