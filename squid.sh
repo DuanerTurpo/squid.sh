@@ -99,6 +99,12 @@ echo -e "
 .tim.com.br
 .timanamaria.com.br
 .vivo.com.br
+.bradescocelular.com.br
+.claroseguranca.com.br
+.claroimprensa.com.br
+.combosclaro.com.br
+.nowonline.com.br
+.clarocpfprotegido.com.br
 .vivo-base.com.br
 .vivomensagens.com.br
 .vivotorpedo.com
