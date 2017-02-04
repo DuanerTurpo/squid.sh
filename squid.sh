@@ -93,7 +93,6 @@ Configurando SQUID3...$fim"
 
 
 echo "
-
 http_port 80
 
 http_port 8080
