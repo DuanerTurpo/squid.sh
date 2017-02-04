@@ -31,9 +31,11 @@ echo -e "$menu
 			KHALIL CONFIG VPS $fim"
 			
 echo -e "$cyanClaro
-Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO.
+Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS
+PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO.
 
-Neste script não há nenhuma garantia de funcionamento ou suporte do autor, use por sua conta e risco.
+Neste script não há nenhuma garantia de funcionamento ou
+suporte do autor, use por sua conta e risco.
 
             SR. KHALIL  @CompreSSH
 CANAL:      TELEGRAM.ME/INEXISTENTESVPN
@@ -140,63 +142,7 @@ service squid3 restart 1>/dev/null 2>/dev/null
 
 echo -e "$verde
 Configuração terminada.$fim"
-
-echo -e "$amarelo
-Novas host adicionadas: (em /etc/payloadS)
-
-.bookclaro.com.br
-.universoclaro.com.br
-.claro.com.ar
-.claro.com.br
-.claro.com.co
-.claro.com.ec
-.claro.com.gt
-.claro.com.ni
-.claro.com.pe
-.claro.com.sv
-.claro.cr
-.claro.com.hn
-.claro.com.yu
-.clarochile.cl
-.clarocurtas.com.br
-.claroideas.com
-.claroideias.com.br
-.claromusica.com
-.clarosomdechamada.com.br
-.clarovideo.com
-.claroblog.com.br
-.lojaclaro.com.br
-.clarotodo.com
-.facebook.net
-.netclaro.com.br
-.turbclaro.com.br
-.fbiz.com.br
-.oi.com.br
-.oimusica.com.br
-.speedtest.net
-.tim.com.br
-.timanamaria.com.br
-.vivo.com.br
-.vivo-base.com.br
-.vivomensagens.com.br
-.vivotorpedo.com
-.d1n212ccp6ldpw.cloudfront.net
-.rdio.com
-.ec2-52-22-60-103.compute-1.amazonaws.com
-.portalrecarga.vivo.com.br/recarga/home/
-.w1716.smartadserver.com
-.interatividade.vivo.ddivulga.com/produto
-.navegue.vivo.ddivulga.com/pacote
-.clarosomdechamada.com.br
-.portalsva2.vivo.com.br
-.bradescocelular.com.br
-.claroseguranca.com.br
-.claroimprensa.com.br
-.combosclaro.com.br
-.nowonline.com.br
-.clarocpfprotegido.com.br $fim"
-
-echo -e "$azulClaro
+echo "$amarelo
   instalando o VPSPACK AGUARDE... $fim"
   
 #!/bin/bash
@@ -364,8 +310,5 @@ rm -rf install 2> /dev/null
 rm -rf VpsPack 2> /dev/null
 
 echo -e "$azul
-            SR. KHALIL  @CompreSSH
-CANAL:      TELEGRAM.ME/INEXISTENTESVPN
-EQUIPE SERVER FULL
-
+    Veja as novas hosts adicionada em ( nano /etc/payloads )
 $fim"
