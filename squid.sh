@@ -2,11 +2,6 @@
 if [ ! "$BASH" ]
 then
 echo "Este script é  experimental, que configura o SQUID PARA criação USO de contas SSH em aplicativos (Http INJECTOR , EPRO etc ..."
-echo -e "$azul
-            SR. KHALIL  @CompreSSH
-CANAL:      TELEGRAM.ME/INEXISTENTESVPN
-EQUIPE SERVER FULL
-$fim"
 sleep 3
 bash $0 $@
 exit $?
@@ -40,7 +35,13 @@ Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEI
 
 Neste script não há nenhuma garantia de funcionamento ou suporte do autor, use por sua conta e risco.
 $fim"
+echo -e "$azul
+            SR. KHALIL  @CompreSSH
+CANAL:      TELEGRAM.ME/INEXISTENTESVPN
+EQUIPE SERVER FULL
+$fim"
 read -p "Pressione Qualquer Tecla para Continuar..."
+
 read -p "Digite seu IP: " ip
 echo -e "$cyanClaro
 Instalando SQUID3...$fim"
