@@ -186,30 +186,6 @@ else
 mkdir /etc/VpsPackdir/limite
 fi
 
-
-if yum -y update
-then
-yum -y update
-yum -y install git
-git clone https://github.com/RicKbrL/VpsPack.git
-clear
-cd VpsPack
-rm -rf README.md
-rm -rf install
-for arqs in `ls`
-do
-rm /bin/$arqs 2>/dev/null
-mv $arqs /bin
-chmod +x /bin/$arqs
-done
-echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
-
-echo -e "$azul
-    Veja as novas hosts adicionada em ( nano /etc/payloads )
-$fim"
-
-
-
 clear
 echo -e "\033[1;37m VpsPack ©Sr.KHALIL \033[0m"
 echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
@@ -295,3 +271,25 @@ else
         exit
         fi
 fi
+
+
+if yum -y update
+then
+yum -y update
+yum -y install git
+git clone https://github.com/RicKbrL/VpsPack.git
+clear
+cd VpsPack
+rm -rf README.md
+rm -rf install
+for arqs in `ls`
+do
+rm /bin/$arqs 2>/dev/null
+mv $arqs /bin
+chmod +x /bin/$arqs
+done
+echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
+
+echo -e "$azul
+    Veja as novas hosts adicionada em ( nano /etc/payloads )
+$fim"
