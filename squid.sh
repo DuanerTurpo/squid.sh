@@ -2,6 +2,11 @@
 if [ ! "$BASH" ]
 then
 echo "Este script é  experimental, que configura o SQUID PARA criação USO de contas SSH em aplicativos (Http INJECTOR , EPRO etc ..."
+echo -e "$azul
+            SR. KHALIL  @CompreSSH
+CANAL:      TELEGRAM.ME/INEXISTENTESVPN
+EQUIPE SERVER FULL
+$fim"
 sleep 3
 bash $0 $@
 exit $?
