@@ -80,12 +80,11 @@ echo -e "$cyanClaro
 
 Instalando SQUID3...$fim"
 
-apt-get update 
+apt-get update 1>/dev/null 2>/dev/null
 
-apt-get upgrade 
+apt-get upgrade 1>/dev/null 2>/dev/null
 
-apt-get install squid3  
-
+apt-get install squid3 1>/dev/null 2>/dev/null
 
 echo -e "$azulClaro
 
@@ -219,10 +218,9 @@ echo -e "$cyanClaro
 
 Recarregando serviços...$fim"
 
-service ssh restart 
+service ssh restart 1>/dev/null 2>/dev/null
 
-service squid3 restart 
-
+service squid3 restart 1>/dev/null 2>/dev/null
 
 # echo -e "$verde
 
@@ -287,9 +285,8 @@ Novas host adicionadas: (em /etc/payloads)
 
 echo -e "$menu
 
-By: SR. KHALIL 
-CANAL: TELEGRAM.ME/INEXISTENTESVPN
+By: SR. KHALIL @CompreSSH
+          CANAL: TELEGRAM.ME/INEXISTENTESVPN
 
-SALVE GRUPO SERVER FULL
-
+               SALVE GRUPO *SERVER_FULL*
 $fim"
