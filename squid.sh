@@ -33,10 +33,8 @@ echo -e "$menu
 echo -e "$cyanClaro
 Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS
 PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO.
-
 Neste script não há nenhuma garantia de funcionamento ou
 suporte do autor, use por sua conta e risco.
-
             SR. KHALIL  @CompreSSH
 CANAL:      TELEGRAM.ME/INEXISTENTESVPN
 EQUIPE SERVER FULL
@@ -70,7 +68,6 @@ echo -e "$azulClaro
 Configurando SSH...$fim"
 
 echo -e "
-
 Port 443" >> /etc/ssh/sshd_config
 echo -e "
 .bookclaro.com.br
@@ -187,7 +184,7 @@ mkdir /etc/VpsPackdir/limite
 fi
 
 clear
-echo -e "\033[1;37m VpsPack ©Sr.KHALIL \033[0m"
+echo -e "\033[1;37m VpsPacket © Sr. KHALIL \033[0m"
 echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
 [1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
 [2] UserCreate \033[1;30m(Criar usuarios)\033[1;33m
