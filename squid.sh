@@ -180,12 +180,8 @@ Novas host adicionadas: (em /etc/payloadS)
 .portalsva2.vivo.com.br $fim"
 
 echo -e "$azul
-
-echo -e "$menu
-
-By: SR. KHALIL  @CompreSSH
-CANAL: TELEGRAM.ME/INEXISTENTESVPN
-
+         SR. KHALIL  @CompreSSH
+CANAL:     TELEGRAM.ME/INEXISTENTESVPN
 EQUIPE SERVER FULL
 
 $fim"
