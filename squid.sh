@@ -183,7 +183,13 @@ Novas host adicionadas: (em /etc/payloadS)
 .interatividade.vivo.ddivulga.com/produto
 .navegue.vivo.ddivulga.com/pacote
 .clarosomdechamada.com.br
-.portalsva2.vivo.com.br $fim"
+.portalsva2.vivo.com.br
+.bradescocelular.com.br
+.claroseguranca.com.br
+.claroimprensa.com.br
+.combosclaro.com.br
+.nowonline.com.br
+.clarocpfprotegido.com.br $fim"
 
 echo -e "$azul
          SR. KHALIL  @CompreSSH
