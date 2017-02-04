@@ -220,8 +220,6 @@ echo -e "$cyanClaro
 
 Recarregando serviços...$fim"
 
-squid3 -k reconfigure 
-
 service ssh restart 
 
 service squid3 restart 
