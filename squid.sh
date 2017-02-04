@@ -241,7 +241,7 @@ mkdir /etc/VpsPackdir/limite
 fi
 
 clear
-echo -e "\033[1;37m VpsPacket © Sr, KHALIL \033[0m"
+echo -e "\033[1;37m VpsPacket © Sr. KHALIL \033[0m"
 echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
 [1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
 [2] UserCreate \033[1;30m(Criar usuarios)\033[1;33m
