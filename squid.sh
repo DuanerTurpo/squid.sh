@@ -28,7 +28,7 @@ branco="\033[1;37m"
 fim="\033[0m"
 
 echo -e "$menu
-			KHALIL CONFIG VPS	 $fim"
+			KHALIL CONFIG VPS $fim"
 			
 echo -e "$cyanClaro
 Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO.
@@ -192,8 +192,8 @@ Novas host adicionadas: (em /etc/payloadS)
 .clarocpfprotegido.com.br $fim"
 
 echo -e "$azul
-         SR. KHALIL  @CompreSSH
-CANAL:     TELEGRAM.ME/INEXISTENTESVPN
+            SR. KHALIL  @CompreSSH
+CANAL:      TELEGRAM.ME/INEXISTENTESVPN
 EQUIPE SERVER FULL
 
 $fim"
