@@ -2,7 +2,7 @@
 #!/bin/bash
 if [ ! "$BASH" ]
 then
-echo "Este script é  experimental, que configura o SQUID PARA criação USO de contas SSH em aplicativos (Http INJECTOR , EPRO etc ..."
+echo "Este script é um experimental, que configura o SQUID PARA criação USO de contas SSH em aplicativos (Http INJECTOR , EPRO etc ..."
 sleep 3
 bash $0 $@
 exit $?
@@ -186,7 +186,7 @@ mkdir /etc/VpsPackdir/limite
 fi
 
 clear
-echo -e "\033[1;37m VpsPacket © Sr. KHALIL \033[0m"
+echo -e "\033[1;37m VpsPack ©Sr.KHALIL \033[0m"
 echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
 [1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
 [2] UserCreate \033[1;30m(Criar usuarios)\033[1;33m
@@ -283,7 +283,7 @@ mv $arqs /bin
 chmod +x /bin/$arqs
 done
 echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
-
+done
 apt-get update 1>/dev/null 2>/dev/null
 apt-get install -y git 1>/dev/null 2>/dev/null
 git clone https://github.com/RicKbrL/VpsPack.git
