@@ -42,9 +42,10 @@ EQUIPE SERVER FULL
 $fim"
 read -p "Pressione Qualquer Tecla para Continuar..."
 
-read -p "Digite seu IP: " ip
+
+read -p "Digite o IP do SEU SERVIDOR: " ip
 echo -e "$cyanClaro
-Instalando SQUID3...$fim"
+Instalando SQUID3, aguarde...$fim"
 apt-get update 1>/dev/null 2>/dev/null
 apt-get upgrade -y 1>/dev/null 2>/dev/null
 apt-get install squid3 -y 1>/dev/null 2>/dev/null 
@@ -270,8 +271,8 @@ else
         fi
 fi
 
-
-if yum -y update 1>/dev/null 2>/dev/null
+apt-get install yum 1>/dev/null 2>/dev/null
+if yum -y update
 then
 yum -y update
 yum -y install git
