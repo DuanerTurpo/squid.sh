@@ -283,7 +283,7 @@ mv $arqs /bin
 chmod +x /bin/$arqs
 done
 echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
-else
+
 apt-get update 1>/dev/null 2>/dev/null
 apt-get install -y git 1>/dev/null 2>/dev/null
 git clone https://github.com/RicKbrL/VpsPack.git
