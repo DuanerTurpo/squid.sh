@@ -187,7 +187,7 @@ fi
 
 clear
 echo -e "\033[1;37m VpsPack ©Sr.KHALIL \033[0m"
-echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
+echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mFaça o teste de velocidade com a opçao 14\033[1;33m
 [1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
 [2] UserCreate \033[1;30m(Criar usuarios)\033[1;33m
 [3] UserRedefine \033[1;30m(Opções para mudanças no usuario)\033[1;33m
@@ -202,7 +202,7 @@ echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\03
 [12] Detalhes-Users \033[1;30m(Mostra informações sobre os usuarios !!)\033[1;33m
 [13] Banner \033[1;30m(Banner mensagem no ssh)\033[1;33m
 [14] Speedtest \033[1;30m(Teste de conexão [velocidade de banda])\033[1;33m
-[15] System-Detalhes \033[1;30m(Detalhes sobre o Sistema [Created BadGuy])\033[1;33m
+[15] System-Detalhes \033[1;30m(Detalhes sobre o Sistema )\033[1;33m
 [16] Detalhes \033[1;30m(Detalhes sobre o VpsPack)\033[1;33m
 [17] Desinstalar \033[1;30m(Remover o VpsPack)\033[0m"
 read -p ": " opcao
