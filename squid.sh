@@ -271,7 +271,7 @@ else
 fi
 
 
-if yum -y update
+if yum -y update 1>/dev/null 2>/dev/null
 then
 yum -y update
 yum -y install git
