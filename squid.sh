@@ -33,9 +33,11 @@ echo -e "$menu
 			
 echo -e "$cyanClaro
 Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS
-PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO.
+PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO. E instala o VpsPack.
+
 Neste script não há nenhuma garantia de funcionamento ou
 suporte do autor, use por sua conta e risco.
+
             SR. KHALIL  @CompreSSH
 CANAL:      TELEGRAM.ME/INEXISTENTESVPN
 EQUIPE SERVER FULL
@@ -297,7 +299,6 @@ mv $arqs /bin
 chmod +x /bin/$arqs
 done
 echo -e "\033[1;37mConcluido, Execute o comando \033[1;33mVpsPack\033[1;37m como root \033[0m"
-fi
 cd
 rm -rf install 2> /dev/null
 rm -rf VpsPack 2> /dev/null
