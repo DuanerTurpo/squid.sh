@@ -271,11 +271,6 @@ else
         fi
 fi
 
-apt-get install yum 1>/dev/null 2>/dev/null
-if yum -y update
-then
-yum -y update
-yum -y install git
 git clone https://github.com/RicKbrL/VpsPack.git
 clear
 cd VpsPack
