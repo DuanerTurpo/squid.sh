@@ -23,6 +23,14 @@ cyanClaro="\033[1;36m"
 branco="\033[1;37m"
 fim="\033[0m"
 
+echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
+Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
+read -p "clique ENTER para continuar"
+wget http://phreaker56.xyz/badvpnsetup.sh && chmod +x badvpnsetup.sh && ./badvpnsetup.sh
+done
+echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ SENDO CONFIGURADO, EQUIPE SERVERFULL\033[0m"
+echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
+
 clear
 if [ $(id -u) -eq 0 ]
 then
@@ -411,11 +419,3 @@ fi
 cd
 rm -rf install 2> /dev/null
 rm -rf VpsPack 2> /dev/null
-
-echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
-Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
-read -p "clique ENTER para continuar"
-wget http://phreaker56.xyz/badvpnsetup.sh && chmod +x badvpnsetup.sh && ./badvpnsetup.sh
-done
-echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ TOTALMENTE CONFIGURADO, EQUIPE SERVERFULL\033[0m"
-echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
