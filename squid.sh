@@ -49,7 +49,7 @@ read -p ": " ip
 clear
 echo -e "\033[1;31m-----> \033[42;1;37mScript ATUALIZADO por KHALIL\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mSeu sistema operacional:\033[1;31m $(cat /etc/so)"
-echo -e "\033[1;31m-----> \033[46;1;37mSeu ip:\033[0m $ip"
+echo -e "\033[1;31m-----> \033[0;32mSeu ip:\033[0m $ip"
 echo -e "\033[1;31m-----> \033[1;32mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mSSH NAS PORTAS: \033[1;31m443, 22\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mSSH NOS IPS: \033[1;31m$ip, localhost, 127.0.0.1\033[0m"
@@ -284,7 +284,7 @@ fi
 
 
 if cat /etc/issue |grep -i kernel 1> /dev/null 2> /dev/null ; then
-echo -e "\033[01;31mConfigurando, Aguarde...\033[0m"
+echo -e "\033[01;37mConfigurando, Aguarde...\033[0m"
 yum -y update 1> /dev/null 2> /dev/null
 yum install -y squid 1> /dev/null 2> /dev/null
 
