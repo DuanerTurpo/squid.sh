@@ -411,5 +411,5 @@ done
 echo -e "\033[1;37mConcluido, Execute o comando \033[1;33mVpsPack\033[1;37m como root \033[0m"
 fi
 cd
-rm -rf install 2> /dev/null
-rm -rf VpsPack 2> /dev/null
+rm -rf install 2>/dev/null
+rm -rf VpsPack 2>/dev/null
