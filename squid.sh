@@ -47,7 +47,7 @@ echo -e "\033[0;31mPara a instalação ser correta é preciso o ip.
 Digite o IP !\033[0m"
 read -p ": " ip
 clear
-echo -e "\033[1;31m-----> \033[0;34mScript ATUALIZADO por KHALIL\033[0m"
+echo -e "\033[1;31m-----> \033[42;1;37mScript ATUALIZADO por KHALIL\033[0m"
 echo -e "\033[1;31m-----> \033[0;34mSeu sistema operacional:\033[1;31m $(cat /etc/so)"
 echo -e "\033[1;31m-----> \033[0;34mSeu ip:\033[1;31m $ip"
 echo -e "\033[1;31m-----> \033[0;34mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
@@ -354,6 +354,7 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
+done
 
 clear
 echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
@@ -364,4 +365,5 @@ chmod +x badvpnsetup.sh
 ./badvpnsetup.sh
 echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ SENDO CONFIGURADO, EQUIPE SERVERFULL\033[0m"
 echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
+exit
 fi
