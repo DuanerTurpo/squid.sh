@@ -180,7 +180,6 @@ payloads
 service squid restart 1> /dev/null 2> /dev/null
 
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !!\033[0m"
-exit 0
 fi
 
 if cat /etc/so |grep -i ubuntu 1> /dev/null 2> /dev/null ; then
@@ -214,7 +213,6 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
-exit 0
 fi
 
 if cat /etc/so |grep -i centos 1> /dev/null 2> /dev/null ; then
@@ -248,7 +246,6 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
-exit
 fi
 
 if cat /etc/so |grep -i debian 1> /dev/null 2> /dev/null ; then
@@ -282,7 +279,6 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
-exit 0
 fi
 
 
@@ -318,7 +314,6 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
-exit
 fi
 
 echo -e "\033[01;31mConfigurando, Aguarde...\033[0m"
