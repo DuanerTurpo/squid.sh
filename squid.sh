@@ -1,12 +1,7 @@
-
-#!/bin/bash
-if [ ! "$BASH" ]
+#/bin/bash
+clear
+if [ $(id -u) -eq 0 ]
 then
-echo "Este script é um experimental, que configura o SQUID PARA criação USO de contas SSH em aplicativos (Http INJECTOR , EPRO etc ..."
-sleep 3
-bash $0 $@
-exit $?
-fi
 clear
 menu="\033[41;1;37m"
 corPadrao="\033[0m"
@@ -28,53 +23,78 @@ cyanClaro="\033[1;36m"
 branco="\033[1;37m"
 fim="\033[0m"
 
-echo -e "$menu
-			KHALIL CONFIG VPS $fim"
-			
-echo -e "$cyanClaro
-Este é um script que configura O SSH E ADICIONA UMA EXTENSA LISTA DE HOSTs ACEITAS
-PELO SERVIDOR PARA TESTES DE NOVAS HOST, EM FOCO A OPERADORA CLARO. E instala o VpsPack.
+clear
+if [ $(id -u) -eq 0 ]
+then
+	clear
+else
+	if echo $(id) |grep sudo > /dev/null
+	then
+	clear
+	echo -e "\033[1;37mVoce não é root"
+	echo -e "\033[1;37mSeu usuario esta no grupo sudo"
+	echo -e "\033[1;37mPara virar root execute \033[1;31msudo su\033[1;37m ou execute \033[1;31msudo $0\033[0m"
+	exit
+	else
+	clear
+	echo -e "Vc nao esta como usuario root, nem com seus direitos (sudo)\nPara virar root execute \033[1;31msu\033[0m e digite sua senha root"
+	exit
+	fi
+fi
 
-Neste script não há nenhuma garantia de funcionamento ou
-suporte do autor, use por sua conta e risco.
+cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/	//' > /etc/so 
+echo -e "\033[0;31mPara a instalação ser correta é preciso o ip.
+Digite o IP !\033[0m"
+read -p ": " ip
+clear
+echo -e "\033[1;31m-----> \033[0;34mScript ATUALIZADO por KHALIL\033[0m"
+echo -e "\033[1;31m-----> \033[0;34mSeu sistema operacional:\033[1;31m $(cat /etc/so)"
+echo -e "\033[1;31m-----> \033[0;34mSeu ip:\033[1;31m $ip"
+echo -e "\033[1;31m-----> \033[0;34mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
+echo -e "\033[1;31m-----> \033[0;34mSSH NAS PORTAS: \033[1;31m443, 22\033[0m"
+echo -e "\033[1;31m-----> \033[0;34mSSH NOS IPS: \033[1;31m$ip, localhost, 127.0.0.1\033[0m"
+echo -e "\033[1;31m-----> \033[0;34mFERRAMENTA ADICIONAR DOMINIOS:\033[1;31m addhost\033[0m"
 
-            SR. KHALIL  @CompreSSH
-CANAL:      TELEGRAM.ME/INEXISTENTESVPN
-EQUIPE SERVER FULL
-$fim"
-read -p "Pressione Qualquer Tecla para Continuar..."
+function sshd_config(){ echo "Port 22
+Port 443
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes" > /etc/ssh/sshd_config
+}
 
+function addhost(){ echo '#!/bin/bash
+echo "Qual host deseja adicionar ?"
+read -p ": " host
+echo "$host" >> /etc/payloads
+squid -k reconfigure > /dev/null 2> /dev/null
+squid3 -k reconfigure > /dev/null 2> /dev/null
+echo "$host Adicionado" ' > /bin/addhost
+chmod a+x /bin/addhost
+}
 
-read -p "Digite o IP do SEU SERVIDOR: " ip
-echo -e "$cyanClaro
-Instalando SQUID3, aguarde...$fim"
-apt-get update 1>/dev/null 2>/dev/null
-apt-get upgrade -y 1>/dev/null 2>/dev/null
-apt-get install squid3 -y 1>/dev/null 2>/dev/null 
-
-echo -e "$azulClaro
-Configurando SQUID3...$fim"
-
-echo "
-http_port 80
-http_port 8080
-http_port 3128
-acl accept dstdomain -i $ip
-acl allowed dstdomain -i "/etc/payloads"
-acl combr dstdomain -i .com.br
-acl all src 0.0.0.0/0.0.0.0
-http_access allow accept
-http_access allow allowed
-http_access allow combr
-http_access deny all" > /etc/squid3/squid.conf
-
-echo -e "$azulClaro
-Configurando SSH...$fim"
-
-echo -e "
-Port 443" >> /etc/ssh/sshd_config
-echo -e "
-.bookclaro.com.br
+function payloads(){ echo ".bookclaro.com.br
 .universoclaro.com.br
 .claro.com.ar
 .claro.com.br
@@ -112,6 +132,7 @@ echo -e "
 .claroimprensa.com.br
 .combosclaro.com.br
 .nowonline.com.br
+.clarocloud.com.co/portal/co/cld/
 .clarocpfprotegido.com.br
 .vivo-base.com.br
 .vivomensagens.com.br
@@ -124,134 +145,215 @@ echo -e "
 .vivo.ddivulga.com/
 .clarosomdechamada.com.br
 .portalsva2.vivo.com.br" > /etc/payloads
-echo -e "$cyanClaro
-Recarregando serviços...$fim"
-squid3 -k reconfigure 1>/dev/null 2>/dev/null
-service ssh restart 1>/dev/null 2>/dev/null
-service squid3 restart 1>/dev/null 2>/dev/null
+}
 
-# echo -e "$verde
-# SUCESSO NA Correção de problemas de pacotes no SSH...$fim"
-# apt-get install ethtool -y 1>/dev/null 2>/dev/null
-# read -p "Digite o nome da sua interface de rede (Padrão: eth0): " interface
-# if [ "$interface" = "" ]
-# then
-# interface=eth0
-# fi
-# ethtool -G $interface rx 999999999 tx 999999999 1>/dev/null 2>/dev/null
+if cat /etc/so |grep -i ubuntu |grep 16 1> /dev/null 2> /dev/null ; then
+echo -e "\033[1;32mConfigurando, Aguarde...\033[0m"
+apt-get update 1> /dev/null 2> /dev/null
+apt-get install -y squid3 1> /dev/null 2> /dev/null
 
+service apache2 stop 1> /dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+service ssh restart 1> /dev/null 2> /dev/null
 
-echo -e "$verde
-Configuração terminada.$fim"
-echo "$amarelo
-  instalando o VPSPACK AGUARDE... $fim"
-  
-#!/bin/bash
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid/squid.conf
 
-if [ $(id -u) -eq 0 ]
-then
-	clear
-else
-	if echo $(id) |grep sudo > /dev/null
-	then
-	clear
-	echo "Voce não é root"
-	echo "Seu usuario esta no grupo sudo"
-	echo -e "Para virar root execute \033[1;31msudo su\033[0m"
-	exit
-	else
-	clear
-	echo -e "Vc nao esta como usuario root, nem com seus direitos (sudo)\nPara virar root execute \033[1;31msu\033[0m e digite sua senha root"
-	exit
-	fi
+addhost
+
+echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
+os hosts ficam no arquivo /etc/payloads\033[0m"
+payloads
+service squid restart 1> /dev/null 2> /dev/null
+
+echo -e "\033[01;31mTudo terminado crie um usuario e teste !!\033[0m"
+exit 0
 fi
 
-if [ -d /etc/VpsPackdir ]
-then
-echo ""
-else
-mkdir /etc/VpsPackdir
+if cat /etc/so |grep -i ubuntu 1> /dev/null 2> /dev/null ; then
+echo -e "\033[1;37mConfigurando, Aguarde...\033[0m"
+apt-get update 1> /dev/null 2> /dev/null
+apt-get install -y squid3 1> /dev/null 2> /dev/null
+
+service apache2 stop 1> /dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+service ssh restart 1> /dev/null 2> /dev/null
+
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid3/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid3/squid.conf
+payloads
+service squid3 restart 1> /dev/null 2> /dev/null
+addhost
+
+echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
+os hosts ficam no arquivo /etc/payloads\033[0m"
+echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
+exit 0
 fi
 
-if [ -d /etc/VpsPackdir/senha ]
-then
-echo ""
-else
-mkdir /etc/VpsPackdir/senha
+if cat /etc/so |grep -i centos 1> /dev/null 2> /dev/null ; then
+echo -e "\033[01;37mConfigurando, Aguarde...\033[0m"
+yum -y update 1> /dev/null 2> /dev/null
+yum install -y squid 1> /dev/null 2> /dev/null
+
+service httpd stop 1> /dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+service sshd restart 1> /dev/null 2> /dev/null
+
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid/squid.conf
+payloads
+service squid restart 1> /dev/null 2> /dev/null
+addhost
+
+echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
+os hosts ficam no arquivo /etc/payloads\033[0m"
+echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
+exit
 fi
 
-if [ -d /etc/VpsPackdir/limite ]
-then
-echo ""
-else
-mkdir /etc/VpsPackdir/limite
+if cat /etc/so |grep -i debian 1> /dev/null 2> /dev/null ; then
+echo -e "\033[01;37mConfigurando, Aguarde...\033[0m"
+apt-get update 1> /dev/null 2> /dev/null
+apt-get install -y squid3 1> /dev/null 2> /dev/null
+service apache2 stop 1> /dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+
+service ssh restart 1> /dev/null 2> /dev/null
+
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid3/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid3/squid.conf
+payloads
+service squid3 restart 1> /dev/null 2> /dev/null
+addhost
+
+echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
+os hosts ficam no arquivo /etc/payloads\033[0m"
+echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
+exit 0
 fi
 
-clear
-echo -e "\033[1;37m VpsPack ©Sr.KHALIL \033[0m"
-echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mFaça o teste de velocidade com a opçao 14\033[1;33m
-[1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
-[2] UserCreate \033[1;30m(Criar usuarios)\033[1;33m
-[3] UserRedefine \033[1;30m(Opções para mudanças no usuario)\033[1;33m
-[4] UserBack \033[1;30m(Deletar, Desconectar, Opções)\033[1;33m
-[5] Firewall-block \033[1;30m(Regras iptables block torrent, icmp [RISCOS])\033[1;33m
-[6] ResetFirewall \033[1;30m(Retira todas as regras iptables [RISCOS])\033[1;33m
-[7] Istall-addhosts \033[1;30m(Faz a preparaçao para add-host)\033[1;33m
-[8] Add-host \033[1;30m(Adicionar hosts aceitos pelo squid )\033[1;33m
-[9] Monitoring \033[1;30m(IMPORTANTE monitorar conexões por usuarios)\033[0m\033[1;33m
-[10] Backup-Users \033[1;30m(Backup dos usuarios para reinstalação futura)\033[1;33m
-[11] Rest-Users \033[1;30m(Restaurar usuarios feito backup)\033[1;33m
-[12] Detalhes-Users \033[1;30m(Mostra informações sobre os usuarios !!)\033[1;33m
-[13] Banner \033[1;30m(Banner mensagem no ssh)\033[1;33m
-[14] Speedtest \033[1;30m(Teste de conexão [velocidade de banda])\033[1;33m
-[15] System-Detalhes \033[1;30m(Detalhes sobre o Sistema )\033[1;33m
-[16] Detalhes \033[1;30m(Detalhes sobre o VpsPack)\033[1;33m
-[17] Desinstalar \033[1;30m(Remover o VpsPack)\033[0m"
-read -p ": " opcao
 
-case $opcao in
- 1)
-  read -p "Usuario: " user
-  read -p "Limite de Conexoes: " limit
-  limit $user $limit;;
- 2)
-  Usercreate;;
- 3)
-  UserRedefine;;
- 4)
-  UserBack;;
- 5)
-  firewall-block;;
- 6)
-  ResetFirewall;;
- 7)
-  install-addhost;;
- 8)
-  add-host;;
- 9)
-  Monitoring;;
- 10)
-  backupusers;; 
- 11)
-  read -p "Em qual diretorio esta o arquivo de Backup: " arq 
-  restusers $arq;;
- 12)
-  detalhesusers;;
- 13)
-  banner;;
- 14)
-  speedtest;;
- 15)
-  systemdetalhes;;
- 16)
-  Detalhes;;
- 17)
-  Desinstalar;;
- *)
-  id > /dev/null 2> /dev/null
-esac
 
-#!/bin/bash
+if cat /etc/issue |grep -i kernel 1> /dev/null 2> /dev/null ; then
+echo -e "\033[01;31mConfigurando, Aguarde...\033[0m"
+yum -y update 1> /dev/null 2> /dev/null
+yum install -y squid 1> /dev/null 2> /dev/null
+
+service httpd stop 1> /dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+service sshd restart 1> /dev/null 2> /dev/null
+
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid/squid.conf
+payloads
+service squid restart 1> /dev/null 2> /dev/null
+addhost
+
+echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
+os hosts ficam no arquivo /etc/payloads\033[0m"
+echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
+exit
+fi
+
+echo -e "\033[01;31mConfigurando, Aguarde...\033[0m"
+
+yum -y update 1> /dev/null 2> /dev/null
+yum install -y squid 1> /dev/null 2> /dev/null
+apt-get update > /dev/null 2> /dev/null
+apt-get install -y squid3 > /dev/null 2>/dev/null
+service httpd stop 1> /dev/null 2> /dev/null
+service apache2 stop >/dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+service sshd restart 1> /dev/null 2> /dev/null
+service ssh restart > /dev/null 2> /dev/null
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid*/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid*/squid.conf
+payloads
+service squid restart 1> /dev/null 2> /dev/null
+service squid3 restart > /dev/null 2> /dev/null
+addhost
+echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
+os hosts ficam no arquivo /etc/payloads\033[0m"
+echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
 
 cd
 
@@ -273,6 +375,11 @@ else
         fi
 fi
 
+
+if yum -y update
+then
+yum -y update
+yum -y install git
 git clone https://github.com/RicKbrL/VpsPack.git
 clear
 cd VpsPack
@@ -284,9 +391,10 @@ rm /bin/$arqs 2>/dev/null
 mv $arqs /bin
 chmod +x /bin/$arqs
 done
-echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m $fim"
-apt-get update 1>/dev/null 2>/dev/null
-apt-get install -y git 1>/dev/null 2>/dev/null
+echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
+else
+apt-get update
+apt-get install -y git
 git clone https://github.com/RicKbrL/VpsPack.git
 clear
 cd VpsPack
@@ -299,10 +407,17 @@ mv $arqs /bin
 chmod +x /bin/$arqs
 done
 echo -e "\033[1;37mConcluido, Execute o comando \033[1;33mVpsPack\033[1;37m como root \033[0m"
+fi
 cd
 rm -rf install 2> /dev/null
 rm -rf VpsPack 2> /dev/null
 
-echo -e "$azul
-    Veja as novas hosts adicionada em ( nano /etc/payloads )
-$fim"
+echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o Uso de chamada via whatsapp e outros de Audio/Video usando o servidor... aguarde \033[0m"
+read -p "clique ENTER para continuar"
+wget http://phreaker56.xyz/badvpnsetup.sh
+chmod +x badvpnsetup.sh
+./badvpnsetup.sh
+
+echo -e " \033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ TOTALMENTE CONFIGURADO,
+EQUIPE SERVERFULL
+BY: SR. KHALIL\033[0m
