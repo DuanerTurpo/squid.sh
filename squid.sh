@@ -419,4 +419,3 @@ wget http://phreaker56.xyz/badvpnsetup.sh && chmod +x badvpnsetup.sh && ./badvpn
 done
 echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ TOTALMENTE CONFIGURADO, EQUIPE SERVERFULL\033[0m"
 echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
-if
