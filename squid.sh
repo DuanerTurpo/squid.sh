@@ -355,3 +355,4 @@ echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
 exit
+fi
