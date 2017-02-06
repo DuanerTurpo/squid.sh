@@ -354,10 +354,8 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
-
 clear
-echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
-Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
+echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
 read -p "clique ENTER para continuar"
 wget http://phreaker56.xyz/badvpnsetup.sh
 chmod +x badvpnsetup.sh
