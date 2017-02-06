@@ -418,6 +418,8 @@ read -p "clique ENTER para continuar"
 wget http://phreaker56.xyz/badvpnsetup.sh
 chmod +x badvpnsetup.sh
 ./badvpnsetup.sh
+done
 echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ TOTALMENTE CONFIGURADO,
 EQUIPE SERVERFULL
 BY: SR. KHALIL\033[0m"
+if
