@@ -407,4 +407,3 @@ fi
 cd
 rm -rf install 2> /dev/null
 rm -rf VpsPack 2> /dev/null
-fi
