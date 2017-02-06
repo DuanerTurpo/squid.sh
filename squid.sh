@@ -48,12 +48,12 @@ Digite o IP !\033[0m"
 read -p ": " ip
 clear
 echo -e "\033[1;31m-----> \033[42;1;37mScript ATUALIZADO por KHALIL\033[0m"
-echo -e "\033[1;31m-----> \033[0;34mSeu sistema operacional:\033[1;31m $(cat /etc/so)"
-echo -e "\033[1;31m-----> \033[0;34mSeu ip:\033[1;31m $ip"
-echo -e "\033[1;31m-----> \033[0;34mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
-echo -e "\033[1;31m-----> \033[0;34mSSH NAS PORTAS: \033[1;31m443, 22\033[0m"
-echo -e "\033[1;31m-----> \033[0;34mSSH NOS IPS: \033[1;31m$ip, localhost, 127.0.0.1\033[0m"
-echo -e "\033[1;31m-----> \033[0;34mFERRAMENTA ADICIONAR DOMINIOS:\033[1;31m addhost\033[0m"
+echo -e "\033[1;31m-----> \033[1;34mSeu sistema operacional:\033[1;31m $(cat /etc/so)"
+echo -e "\033[1;31m-----> \033[1;34mSeu ip:\033[1;31m $ip"
+echo -e "\033[1;31m-----> \033[1;34mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
+echo -e "\033[1;31m-----> \033[1;34mSSH NAS PORTAS: \033[1;31m443, 22\033[0m"
+echo -e "\033[1;31m-----> \033[1;34mSSH NOS IPS: \033[1;31m$ip, localhost, 127.0.0.1\033[0m"
+echo -e "\033[1;31m-----> \033[1;34mFERRAMENTA ADICIONAR DOMINIOS:\033[1;31m addhost\033[0m"
 
 function sshd_config(){ echo "Port 22
 Port 443
@@ -354,14 +354,3 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
-
-echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
-Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
-read -p "clique ENTER para continuar"
-wget http://phreaker56.xyz/badvpnsetup.sh
-chmod +x badvpnsetup.sh
-./badvpnsetup.sh
-echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ SENDO CONFIGURADO, EQUIPE SERVERFULL\033[0m"
-echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
-exit
-fi
