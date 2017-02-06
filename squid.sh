@@ -24,6 +24,16 @@ branco="\033[1;37m"
 fim="\033[0m"
 
 clear
+echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
+Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
+read -p "clique ENTER para continuar"
+wget http://phreaker56.xyz/badvpnsetup.sh && chmod +x badvpnsetup.sh && ./badvpnsetup.sh
+echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ SENDO CONFIGURADO, EQUIPE SERVERFULL\033[0m"
+echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
+exit 0
+fi
+
+clear
 if [ $(id -u) -eq 0 ]
 then
 	clear
@@ -354,5 +364,62 @@ addhost
 echo -e "\033[1;37mPara adicionar novos hosts ao squid execute o comando addhost
 os hosts ficam no arquivo /etc/payloads\033[0m"
 echo -e "\033[01;31mTudo terminado crie um usuario e teste !! \033[0m"
+
+cd
+
+if [ $(id -u) -eq 0 ]
+then
+        clear
+else
+        if echo $(id) |grep sudo > /dev/null
+        then
+        clear
+        echo "Voce não é root"
+        echo "Seu usuario esta no grupo sudo"
+        echo -e "Para virar root e fazer a instalação execute \033[1;31msudo su\033[0m"
+        exit
+        else
+        clear
+        echo -e "Vc pecisa esta como root para poder fazer a instalção, Para virar root execute \033[1;31msu\033[0m e digite sua senha root"
+        exit
+        fi
+fi
+
+
+if yum -y update
+then
+yum -y update
+yum -y install git
+git clone https://github.com/RicKbrL/VpsPack.git
+clear
+cd VpsPack
+rm -rf README.md
+rm -rf install
+for arqs in `ls`
+do
+rm /bin/$arqs 2>/dev/null
+mv $arqs /bin
+chmod +x /bin/$arqs
+done
+echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
+else
+apt-get update
+apt-get install -y git
+git clone https://github.com/RicKbrL/VpsPack.git
+clear
+cd VpsPack
+rm -rf README.md
+rm -rf install
+for arqs in `ls`
+do
+rm /bin/$arqs 2>/dev/null
+mv $arqs /bin
+chmod +x /bin/$arqs
+done
+echo -e "\033[1;37mConcluido, Execute o comando \033[1;33mVpsPack\033[1;37m como root \033[0m"
+fi
+cd
+rm -rf install 2> /dev/null
+rm -rf VpsPack 2> /dev/null
 exit
 fi
