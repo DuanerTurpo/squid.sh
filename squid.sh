@@ -415,11 +415,8 @@ rm -rf VpsPack 2> /dev/null
 echo -e "\033[1;31m-----> \033[0;34mINSTALANDO também o badudp fundamental para HABILITAR o 
 Uso de chamada via whatsapp e outros de Audio/Video usando o servidor...\033[0m"
 read -p "clique ENTER para continuar"
-wget http://phreaker56.xyz/badvpnsetup.sh
-chmod +x badvpnsetup.sh
-./badvpnsetup.sh
+wget http://phreaker56.xyz/badvpnsetup.sh && chmod +x badvpnsetup.sh && ./badvpnsetup.sh
 done
-echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ TOTALMENTE CONFIGURADO,
-EQUIPE SERVERFULL
-BY: SR. KHALIL\033[0m"
+echo -e "\033[42;1;37mTUDO OK, SEU SERVIDOR VPS ESTÁ TOTALMENTE CONFIGURADO, EQUIPE SERVERFULL\033[0m"
+echo -e "\033[41;1;37mBY: SR. KHALIL\033[0m"
 if
