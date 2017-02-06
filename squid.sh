@@ -49,8 +49,8 @@ read -p ": " ip
 clear
 echo -e "\033[1;31m-----> \033[42;1;37mScript ATUALIZADO por KHALIL\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mSeu sistema operacional:\033[1;31m $(cat /etc/so)"
-echo -e "\033[1;31m-----> \033[1;34mSeu ip:\033[1;31m $ip"
-echo -e "\033[1;31m-----> \033[1;34mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
+echo -e "\033[1;31m-----> \033[1;34mSeu ip:\033[4;30m $ip"
+echo -e "\033[1;31m-----> 033[1;32mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mSSH NAS PORTAS: \033[1;31m443, 22\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mSSH NOS IPS: \033[1;31m$ip, localhost, 127.0.0.1\033[0m"
 echo -e "\033[1;31m-----> \033[1;34mFERRAMENTA ADICIONAR DOMINIOS:\033[1;31m addhost\033[0m"
